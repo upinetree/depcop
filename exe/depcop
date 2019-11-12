@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path("../lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require "depcop"
+
+json_string = File.pipe?(STDIN) ? STDIN.read : ARGV.pop
+
+unless json_string
+  puts "No input"
+  exit
+end
+
+Depcop::Cli.run(json_string)
