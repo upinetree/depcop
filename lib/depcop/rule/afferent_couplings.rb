@@ -20,7 +20,7 @@ module Depcop
         @afferent_deps.select { |_to, from|
           from.size > @config["Max"]
         }.map { |to, from|
-          "Afferent couplings too high [#{from.size}/#{@config["Max"]}]: #{to}"
+          "Afferent couplings (Ca) too high [#{from.size}/#{@config["Max"]}]: #{to}"
         }
       end
     end
