@@ -13,10 +13,10 @@ class TestCircularDependency < MiniTest::Test
       { "from" => ["A"], "to" => ["C"] },
     ]
 
-    warnings = Depcop::CircularDependency.new(nodes, edges).run
+    warnings = Depcop::Rule::CircularDependency.new(nodes, edges).run
     assert_equal 0, warnings.size
 
-    warnings = Depcop::CircularDependency.new(nodes, cyclic_edges).run
+    warnings = Depcop::Rule::CircularDependency.new(nodes, cyclic_edges).run
     assert_equal 1, warnings.size
   end
 end
