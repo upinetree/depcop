@@ -5,7 +5,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "depcop"
 
-json_string = File.pipe?(STDIN) ? STDIN.read : ARGV.pop
+json_string = if File.pipe?(STDIN)
+                STDIN.read
+              else
+                file_or_json = ARGV.pop
+                File.exist?(file_or_json) ? File.read(file_or_json) : file_or_json
+              end
 
 unless json_string
   puts "No input"

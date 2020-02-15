@@ -29,6 +29,11 @@ Quick start:
     $ cd my/cool/ruby/project
     $ depdump | depcop
 
+or
+
+    $ depcop dep.json
+    $ depcop `cat dep.json`
+
 You can try examples in this repo.
 
     $ depdump examples/circular_dependencies | depcop
