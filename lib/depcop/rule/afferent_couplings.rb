@@ -1,7 +1,7 @@
 module Depcop
   module Rule
     class AfferentCouplings
-      CONFIG_DEFAULTS = { max: 5 }
+      CONFIG_DEFAULTS = { "Max" => 5 }
 
       def initialize(nodes, edges, config)
         afferent_deps = Hash[nodes.map { |n| [n.join("::"), []] }]

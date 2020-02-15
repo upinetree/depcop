@@ -38,6 +38,14 @@ You can try examples in this repo.
 
     $ depdump examples/circular_dependencies | depcop
 
+### Configuration
+
+Configuration YAML file is `.depcop.yml` by default.
+
+To specify a configuration file, use `-c` option for the command.
+
+    $ depcop -c examples/.depcop.yml dep.json
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
