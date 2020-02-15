@@ -15,8 +15,9 @@ module Depcop
       puts warnings.flatten.join("\n")
     end
 
+    # TODO: Add a rule to this list when inherited base class of the rules
     def self.rules
-      [Rule::CircularDependency]
+      [Rule::CircularDependency, Rule::AfferentCouplings]
     end
   end
 end
