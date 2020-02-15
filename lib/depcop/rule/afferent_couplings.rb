@@ -3,7 +3,7 @@ module Depcop
     class AfferentCouplings
       CONFIG_DEFAULTS = { max: 5 }
 
-      def initialize(nodes, edges, config = {})
+      def initialize(nodes, edges, config)
         afferent_deps = Hash[nodes.map { |n| [n.join("::"), []] }]
 
         edges.each do |edge|
@@ -13,14 +13,14 @@ module Depcop
         end
 
         @afferent_deps = afferent_deps
-        @config = CONFIG_DEFAULTS.merge(config)
+        @config = CONFIG_DEFAULTS.merge(config || {})
       end
 
       def run
         @afferent_deps.select { |_to, from|
-          from.size > @config[:max]
+          from.size > @config["Max"]
         }.map { |to, from|
-          "Afferent couplings too high [#{from.size}/#{@config[:max]}]: #{to}"
+          "Afferent couplings too high [#{from.size}/#{@config["Max"]}]: #{to}"
         }
       end
     end

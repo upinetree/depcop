@@ -3,7 +3,7 @@ require "tsort"
 module Depcop
   module Rule
     class CircularDependency
-      def initialize(nodes, edges)
+      def initialize(nodes, edges, _config = nil)
         dependencies = Hash[nodes.map { |n| [n.join("::"), []] }]
 
         edges.each do |edge|

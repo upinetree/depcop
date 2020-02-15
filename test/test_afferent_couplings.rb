@@ -13,7 +13,7 @@ class TestAfferentCouplings < MiniTest::Test
     edges_over_max = edges + [
       { "from" => ["A"], "to" => ["Target"] },
     ]
-    config = { max: 3 }
+    config = { "Max" => 3 }
 
     warnings = Depcop::Rule::AfferentCouplings.new(nodes, edges, config).run
     assert_equal 0, warnings.size
