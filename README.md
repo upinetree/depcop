@@ -1,8 +1,8 @@
 # Depcop
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/depcop`. To experiment with that code, run `bin/console` for an interactive prompt.
+:construction: Still a work in progress, interfaces may be changed.
 
-TODO: Delete this and the text above, and describe your gem
+A checking tool of a ruby class/module dependency graph.
 
 ## Installation
 
@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Depcop is supposed to be used with [Depdump](https://github.com/upinetree/depdump/) (or compatible JSON structures).
+
+Quick start:
+
+    $ cd my/cool/ruby/project
+    $ depdump | depcop
+
+You can try examples in this repo.
+
+    $ depdump examples/circular_dependencies | depcop
 
 ## Development
 
