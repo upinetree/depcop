@@ -6,9 +6,17 @@ require "json"
 module Depcop
   class Cli
     def self.run(json_string)
-      dependency_graph = JSON.parse(json_string)
-      warnings = Rule::CircularDependency.new(dependency_graph["nodes"], dependency_graph["edges"]).run
-      puts warnings.join("\n")
+      nodes, edges = JSON.parse(json_string).values_at("nodes", "edges")
+
+      warnings = rules.map do |rule|
+        rule.new(nodes, edges).run
+      end
+
+      puts warnings.flatten.join("\n")
+    end
+
+    def self.rules
+      [Rule::CircularDependency]
     end
   end
 end
