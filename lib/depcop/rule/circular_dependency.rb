@@ -17,7 +17,12 @@ module Depcop
 
       def run
         circles = @graph.strongly_connected_components.select { |component| component.size > 1 }
-        circles.map { |c| "Circular dependency: " + c.join(" --- ") }
+        circles.map do |circle|
+          [
+            "Circular dependency detected in #{circle.size} nodes:",
+            circle.map { |node| node.gsub(/^(?!$)/, "    ") },
+          ].flatten.join("\n")
+        end
       end
 
       class Graph
