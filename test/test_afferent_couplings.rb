@@ -5,7 +5,7 @@ class TestAfferentCouplings < MiniTest::Test
   def test_showing_afferent_couplings
     nodes = [["A"], ["A", "B"], ["C"], ["D"], ["Target"]]
     edges = [
-      { "from" => ["A::B"], "to" => ["Target"] },
+      { "from" => ["A", "B"], "to" => ["Target"] },
       { "from" => ["C"], "to" => ["Target"] },
       { "from" => ["D"], "to" => ["Target"] },
       { "from" => ["Target"], "to" => ["A"] },

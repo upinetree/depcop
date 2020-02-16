@@ -5,7 +5,7 @@ class TestEfferentCouplings < MiniTest::Test
   def test_showing_efferent_couplings
     nodes = [["A"], ["A", "B"], ["C"], ["D"], ["Source"]]
     edges = [
-      { "from" => ["Source"], "to" => ["A::B"] },
+      { "from" => ["Source"], "to" => ["A", "B"] },
       { "from" => ["Source"], "to" => ["C"] },
       { "from" => ["Source"], "to" => ["D"] },
       { "from" => ["D"], "to" => ["C"] },
