@@ -18,7 +18,7 @@ module Depcop
 
     # TODO: Add a rule to this list when inherited base class of the rules
     def self.rules
-      [Rule::CircularDependency, Rule::AfferentCouplings, Rule::EfferentCouplings]
+      [Rule::CircularDependency, Rule::AfferentCouplings, Rule::EfferentCouplings, Rule::Instability]
     end
   end
 end
